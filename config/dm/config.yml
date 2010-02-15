@@ -1,0 +1,14 @@
+default:
+
+  ckeditor:
+    config:
+
+      toolbar:
+        - ['Format', 'Bold', 'Italic','Strike','Blockquote', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink']
+        - ['PasteText','PasteFromWord']
+        - ['Undo','Redo']
+        - ['Image','HorizontalRule','SpecialChar']
+
+      resize_enabled:     false
+        
+      customConfig:       ''

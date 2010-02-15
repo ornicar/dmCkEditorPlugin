@@ -1,0 +1,9 @@
+.sf_widget_form_textarea_dm_ck_editor .label_wrap {
+  float: none !important;
+}
+
+.sf_widget_form_textarea_dm_ck_editor span.cke_skin_kama {
+-moz-border-radius: 0;
+border: none;
+padding: 0;
+}
