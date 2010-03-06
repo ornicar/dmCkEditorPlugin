@@ -1,15 +1,15 @@
 $.fn.dmWidgetContentCkEditorForm = function(widget)
 {
 
+    var self = this, $textarea = self.find('textarea.dm_ckeditor'), editor;
+
+
     //Kill all existing instances before loading
     //ckeditor again or it will not work with ajax request
-    for(var name in CKEDITOR.instances)
+    if ( $textarea.attr('id') in CKEDITOR.instances )
     {
-        CKEDITOR.remove(CKEDITOR.instances[name]);
+        CKEDITOR.remove(CKEDITOR.instances[$textarea.attr('id')]);
     }
-
-
-    var self = this, $textarea = self.find('textarea.dm_ckeditor'), editor;
 
     $textarea.ckeditor(function()
         {
