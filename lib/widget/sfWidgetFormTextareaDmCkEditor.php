@@ -49,6 +49,7 @@ class sfWidgetFormTextareaDmCkEditor extends sfWidgetFormTextarea
       json_encode($this->getOption('config'))
     ));
 
+    $value = sfContext::getInstance()->get('ckeditor')->render($value);
     return parent::render($name, $value, $attributes, $errors);
   }
 

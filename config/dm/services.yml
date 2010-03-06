@@ -5,3 +5,12 @@ parameters:
   media_tag_video.class:        dmMediaTagFlowPlayerVideo       # Responsible for rendering video
   
   media_tag_audio.class:        dmMediaTagFlowPlayerAudio       # Responsible for rendering audio
+  
+  ckeditor.class:               dmCkEditor  
+  
+services:
+
+  ckeditor:
+    class:                      %ckeditor.class%
+    shared:                     true
+    arguments:                  [@helper]  
