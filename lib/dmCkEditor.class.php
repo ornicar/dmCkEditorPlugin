@@ -2,6 +2,11 @@
 
 require_once dirname(__FILE__).'/vendor/simplehtmldom/simple_html_dom.php';
 
+/**
+ * 
+ * @author Robert Gründler <robert@dubture.com>
+ *
+ */
 class dmCkEditor 
 {
   
@@ -11,7 +16,11 @@ class dmCkEditor
   {
     $this->helper = $helper;
   }
-  
+
+  /**
+   * Renders the ckeditor contents
+   * @param string $data
+   */
   public function render($data) 
   {
     
@@ -23,7 +32,11 @@ class dmCkEditor
     return $html;
     
   }
-  
+
+  /**
+   * 
+   * @param string $image
+   */
   protected function updateImage($image) 
   {
     
