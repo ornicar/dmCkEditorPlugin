@@ -38,16 +38,17 @@ CKEDITOR.plugins.add('dmMedia',
 
     CKEDITOR.instances[editor.name].on('instanceReady', function() {
       var overlayid;
-      $('.image.ui-draggable').live('dragstart', function(event, ui) {
-        overlayid = createOverlay(editor, $.dm.ctrl.getHref('+/dmMedia/index/id/'));
-      });
       
       $('#dm_page_tree li.ui-draggable').live('dragstart', function(event, ui){
-        overlayid = createOverlay(editor, $.dm.ctrl.getHref('+/dmMedia/page/id/'));
+        overlayid = createOverlay(editor, $.dm.ctrl.getHref('+/dmCkEditor/page/id/'));
       });
 
       $('#dm_page_tree li.ui-draggable').live('dragstop', function(event, ui) {
         $('#' + overlayid).remove();
+      });
+      
+      $('.image.ui-draggable').live('dragstart', function(event, ui) {
+        overlayid = createOverlay(editor, $.dm.ctrl.getHref('+/dmCkEditor/media/id/'));
       });
 
       $('.image.ui-draggable').live('dragstop', function(event, ui) {
