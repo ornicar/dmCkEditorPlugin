@@ -23,7 +23,6 @@ class dmCkEditor
    */
   public function render($data) 
   {
-    
     $html = str_get_html($data);
     foreach ($html->find('img') as $image) 
     {
@@ -41,22 +40,23 @@ class dmCkEditor
    * @param string $page link to the page to update
    * @return void
    */
-  protected function updatePage($page) {
+  protected function updatePage($page)
+  {
     
     $id = str_replace('dmPage-','',$page->id);
     if (!$id || !is_numeric($id))
+    {
       return;
+    }
       
-    $_page = Doctrine_Core::getTable('DmPage')
-      ->createQuery('p')
-      ->innerJoin('p.Translation t')
-      ->where('p.id = ?', $id)
-      ->fetchOne();
+    $pageRecord = dmDb::table('DmPage')->findOneByIdWithI18n($id);
     
-    if (!$_page)
+    if (!$pageRecord)
+    {
       return;
+    }
       
-    $url = $this->helper->link($_page)->getHref();
+    $url = $this->helper->link($pageRecord)->getHref();
 
     if ($page->href != $url) 
     {
@@ -71,14 +71,22 @@ class dmCkEditor
    */
   protected function updateImage($image) 
   {
-    
     $id = str_replace('ck-media-','',$image->id);
+
     if (!$id || !is_numeric($id))
+    {
       return;
-    $media = Doctrine_Core::getTable('dmMedia')->findOneById($id);
-    if (!$media)
+    }
+    
+    $mediaRecord = dmDb::table('dmMedia')->findOneByIdWithFolder($id);
+
+    if (!$mediaRecord)
+    {
       return;
-    $src = $this->helper->media($media)->getSrc();
+    }
+    
+    $src = $this->helper->media($mediaRecord)->getSrc();
+    
     if ($image->src != $src) 
     {
       $image->src = $src;
