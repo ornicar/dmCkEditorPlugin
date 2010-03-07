@@ -35,8 +35,7 @@ CKEDITOR.plugins.add('diem',
 {
   init: function(editor)
   {
-
-    CKEDITOR.instances[editor.name].on('instanceReady', function() {
+    editor.on('instanceReady', function() {
       var overlayid;
       
       $('#dm_page_tree a.ui-draggable').live('dragstart', function(event, ui){
