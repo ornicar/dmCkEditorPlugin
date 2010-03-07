@@ -39,11 +39,11 @@ CKEDITOR.plugins.add('diem',
     CKEDITOR.instances[editor.name].on('instanceReady', function() {
       var overlayid;
       
-      $('#dm_page_tree a.ui-draggable').live('dragstart', function(event, ui){
+      $('#dm_page_tree li.ui-draggable').live('dragstart', function(event, ui){
         overlayid = dmCkEditorCreateOverlay(editor, $.dm.ctrl.getHref('+/dmCkEditor/page/id/'));
       });
 
-      $('#dm_page_tree a.ui-draggable').live('dragstop', function(event, ui) {
+      $('#dm_page_tree li.ui-draggable').live('dragstop', function(event, ui) {
         $('#' + overlayid).remove();
       });
       
