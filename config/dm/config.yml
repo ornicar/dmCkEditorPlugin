@@ -11,6 +11,6 @@ default:
 
       resize_enabled:     false
 
-      extraPlugins:       dmMedia
+      extraPlugins:       diem
 
       customConfig:       ''

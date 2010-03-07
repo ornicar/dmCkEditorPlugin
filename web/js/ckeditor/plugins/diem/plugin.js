@@ -3,12 +3,12 @@
  * @param {Object} editor 
  * @param {String} link the link for the ajax action
  */
-function createOverlay(editor, link) {
+function dmCkEditorCreateOverlay(editor, link) {
 
   var overlayid = 'drag_box_' + editor.name;
   $editor = $('#cke_' + editor.name);
   var offset = $editor.offset();
-  $(document.body).append('<div id="'+overlayid+'"><input style="width: 100%; height: 100%;"></input></div>');
+  $(document.body).append('<div id="'+overlayid+'"><input style="width: 100%; height: 100%;" /></div>');
 
   $('#' + overlayid).css({
     position: 'absolute',
@@ -31,7 +31,7 @@ function createOverlay(editor, link) {
   return overlayid;
 }
 
-CKEDITOR.plugins.add('dmMedia',
+CKEDITOR.plugins.add('diem',
 {
   init: function(editor)
   {
@@ -40,7 +40,7 @@ CKEDITOR.plugins.add('dmMedia',
       var overlayid;
       
       $('#dm_page_tree a.ui-draggable').live('dragstart', function(event, ui){
-        overlayid = createOverlay(editor, $.dm.ctrl.getHref('+/dmCkEditor/page/id/'));
+        overlayid = dmCkEditorCreateOverlay(editor, $.dm.ctrl.getHref('+/dmCkEditor/page/id/'));
       });
 
       $('#dm_page_tree a.ui-draggable').live('dragstop', function(event, ui) {
@@ -48,7 +48,7 @@ CKEDITOR.plugins.add('dmMedia',
       });
       
       $('#dm_media_browser li.image.ui-draggable').live('dragstart', function(event, ui) {
-        overlayid = createOverlay(editor, $.dm.ctrl.getHref('+/dmCkEditor/media/id/'));
+        overlayid = dmCkEditorCreateOverlay(editor, $.dm.ctrl.getHref('+/dmCkEditor/media/id/'));
       });
 
       $('#dm_media_browser li.image.ui-draggable').live('dragstop', function(event, ui) {
