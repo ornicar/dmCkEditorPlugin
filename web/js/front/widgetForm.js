@@ -1,7 +1,7 @@
 $.fn.dmWidgetContentCkEditorForm = function(widget)
 {
 
-    var self = this, $textarea = self.find('textarea.dm_ckeditor'), editor;
+    var self = this, $textarea = self.find('textarea.dm_ckeditor');
 
 
     //Kill all existing instances before loading
@@ -11,12 +11,7 @@ $.fn.dmWidgetContentCkEditorForm = function(widget)
         CKEDITOR.remove(CKEDITOR.instances[$textarea.attr('id')]);
     }
 
-    $textarea.ckeditor(function()
-        {
-            $.dbg(this);
-        },
-        $textarea.metadata()
-    );
+    $textarea.ckeditor(function(){}, $textarea.metadata());
 
 
     self.find('input.submit').click(function() {
