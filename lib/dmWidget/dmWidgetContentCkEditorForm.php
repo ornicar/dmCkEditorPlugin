@@ -7,7 +7,10 @@ class dmWidgetContentCkEditorForm extends dmWidgetPluginForm
   {
     parent::configure();
 
-    $this->widgetSchema['html'] = new sfWidgetFormTextareaDmCkEditor();
+    $this->widgetSchema['html'] = new sfWidgetFormTextareaDmCkEditor(array(
+      'ckeditor' => $this->getService('ckeditor')
+    ));
+    
     $this->validatorSchema['html'] = new sfValidatorString();
   }
 
